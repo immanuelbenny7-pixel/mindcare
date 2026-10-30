@@ -1,0 +1,451 @@
+================================================================================
+           MINDCARE — COMPREHENSIVE USER GUIDE & FEATURE MANUAL
+================================================================================
+Application Name : MindCare (Mental Wellness & Daily Reflection Platform)
+Companion Name   : Prakash (Supportive AI Wellness Assistant)
+Local Web Address: http://localhost:3001
+License & Scope  : Personal Mental Wellness & Self-Reflection Tool (Non-Medical)
+================================================================================
+
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+1. INTRODUCTION & CORE PHILOSOPHY
+   - What MindCare Is
+   - What MindCare Is NOT (Important Boundaries & Disclaimers)
+   - Privacy-First Architecture & Data Ownership
+
+2. ACCESSING THE APPLICATION
+   - Running the Server
+   - Browser Access & Mobile / Desktop Responsiveness
+
+3. DETAILED FEATURE BREAKDOWN & STEP-BY-STEP GUIDES
+   - Feature 1: Welcome & Onboarding
+   - Feature 2: Home Dashboard & Personalized Recommendations
+   - Feature 3: Daily Mood Check-In (Manual & Optional Photo Analysis)
+   - Feature 4: Sleep & Wellbeing Log
+   - Feature 5: History, Charts & Reflective Insights
+   - Feature 6: Exercise Library & Interactive Guided Practice
+   - Feature 7: Prakash AI Reflection Companion
+   - Feature 8: Crisis Protocol & Verified Emergency Support
+   - Feature 9: Settings, Privacy Controls & Data Management
+
+4. COMMON USER SCENARIOS & STEP-BY-STEP WALKTHROUGHS
+   - Scenario A: High Stress or Overwhelm After Work
+   - Scenario B: Restless Sleep & Low Morning Energy
+   - Scenario C: Racing Thoughts & Trouble Unwinding at Bedtime
+   - Scenario D: Savoring a Peaceful or Joyful Moment
+
+5. FREQUENTLY ASKED QUESTIONS (FAQ) & TECHNICAL DETAILS
+--------------------------------------------------------------------------------
+
+
+================================================================================
+1. INTRODUCTION & CORE PHILOSOPHY
+================================================================================
+
+What MindCare Is:
+MindCare is a soothing, distraction-free digital space created to help you slow 
+down, check in with yourself, and observe natural patterns in your mood, sleep, 
+and daily stress levels. It pairs intuitive self-reflection tools with an 
+empathetic AI assistant named Prakash.
+
+What MindCare Is NOT (Critical Boundaries):
+1. NOT A MEDICAL OR CLINICAL PRODUCT: MindCare is designed strictly for personal 
+   wellness and self-reflection. It does NOT diagnose mental health conditions, 
+   does NOT provide therapy or medical treatments, and CANNOT substitute for a 
+   licensed doctor, psychiatrist, psychologist, or certified therapist.
+2. NOT AN EMERGENCY RESPONDER: Prakash and MindCare are automated software systems. 
+   They are not monitored by humans or emergency services. If you or someone you 
+   know is in immediate crisis, contact emergency services (e.g. 988 in US/Canada, 
+   14416 in India, 111/999 in UK).
+3. NO INFERRED DIAGNOSES: Facial expression estimation cannot read minds or 
+   detect true emotions. It is provided only as a tentative, non-binding guess 
+   of visible features that you can freely accept, modify, or ignore.
+
+Privacy-First Architecture:
+- Your reflection logs, mood entries, sleep journal, and preferences are stored 
+  locally on your own device in your web browser's storage (LocalStorage).
+- Photos uploaded for facial expression guessing are processed strictly in-memory 
+  by Google Gemini on the server and are NEVER saved to disk or database.
+- Your Gemini API key is kept safely on the server and is never exposed to the 
+  browser or frontend code.
+
+
+================================================================================
+2. ACCESSING THE APPLICATION
+================================================================================
+
+Starting the Server:
+1. Open PowerShell or Command Prompt in the project folder.
+2. Ensure dependencies are installed and the server is running:
+     npm start
+3. You will see:
+     MindCare backend server running on http://localhost:3001
+     Gemini AI configured: YES (gemini-3.1-flash-lite)
+
+Accessing MindCare:
+Open your preferred web browser (Google Chrome, Microsoft Edge, Safari, Firefox) 
+and navigate to:
+     http://localhost:3001
+
+The interface adapts smoothly to all screens: desktop monitors, laptops, 
+tablets, and mobile smartphones.
+
+
+================================================================================
+3. DETAILED FEATURE BREAKDOWN & STEP-BY-STEP GUIDES
+================================================================================
+
+--------------------------------------------------------------------------------
+FEATURE 1: WELCOME & ONBOARDING
+--------------------------------------------------------------------------------
+Purpose:
+Introduces you to MindCare's gentle approach, establishes non-medical boundaries, 
+and gives you granular control over AI features before any data is processed.
+
+Step-by-Step Instructions:
+1. On your first visit, the Onboarding Modal appears automatically.
+2. Step 1 (Welcome & Purpose): Read about what MindCare provides and its non-medical 
+   boundaries. Click "Next".
+3. Step 2 (Privacy & Photo Realism): Learn why face photos cannot diagnose true 
+   feelings and how your data remains private. Click "Next".
+4. Step 3 (Your Choices):
+   - Check or uncheck "Allow AI reflection chat (Prakash)".
+   - Check or uncheck "Allow Prakash to reference recent mood/sleep logs".
+   - Check or uncheck "Optional photo facial expression guessing".
+5. Click "Start MindCare" to enter your dashboard.
+Note: You can revisit this orientation anytime by clicking the "Non-Medical Tool" 
+badge in the header or through the Settings tab.
+
+--------------------------------------------------------------------------------
+FEATURE 2: HOME DASHBOARD & PERSONALIZED RECOMMENDATIONS
+--------------------------------------------------------------------------------
+Purpose:
+Serves as your daily grounding home base. Greets you according to the time of day 
+and presents transparent, personalized exercise recommendations.
+
+Components on the Dashboard:
+1. Welcoming Hero Banner:
+   - Displays a dynamic greeting (Good morning / afternoon / evening).
+   - Core question: "What are you noticing today?"
+   - Three quick-action buttons:
+     * "Log My Mood" -> Opens the Mood Check-in screen.
+     * "Reflect with Prakash" -> Opens the AI companion conversation.
+     * "Try an Exercise" -> Opens the restorative exercise library.
+
+2. "Suggested For You" Recommendation Cards:
+   - MindCare evaluates your latest self-reported logs (such as elevated stress, 
+     restless sleep, low energy, or calm feelings) and selects suitable exercises.
+   - Transparent Rationale: Every card states why it was recommended, for example:
+     "Suggested because you logged restless sleep last night."
+   - Feedback & Controls:
+     * Click the "X" button to dismiss a suggestion you don't want.
+     * Click the Thumbs Up (Helpful) or Thumbs Down (Not Helpful) icons to help 
+       the recommendation engine learn your preferences.
+     * Click "Begin" to launch the guided interactive exercise immediately.
+
+3. "At A Glance" Summary Cards:
+   - Displays your most recent Mood Check-in (emoji, label, intensity, and notes).
+   - Displays your most recent Sleep Log (hours slept, quality, energy, and stress).
+
+--------------------------------------------------------------------------------
+FEATURE 3: DAILY MOOD CHECK-IN
+--------------------------------------------------------------------------------
+Purpose:
+Allows you to record what you are feeling in a safe, nonjudgmental format without 
+labels like "good" or "bad".
+
+Step-by-Step Instructions:
+1. Navigate to the "Mood Log" tab in the top navigation bar.
+2. Step 1 (Select Mood): Click on one of the 10 mood descriptors:
+   - Peaceful   (🌿 Centered, calm, and present)
+   - Content    (☀️ Satisfied and comfortable with where things are)
+   - Joyful     (✨ Lightness, gratitude, or uplifting energy)
+   - Reflective (🌊 Pensive, noticing your inner world)
+   - Energized  (⚡ Active, engaged, and motivated)
+   - Fatigued   (🌙 Low physical or mental energy; drained)
+   - Anxious    (🍃 Restless mind or anticipatory worries)
+   - Stressed   (🌪️ Feeling pressured, tight shoulders, or stretched thin)
+   - Overwhelmed(🌧️ Too much stimulus or demands piling on)
+   - Low / Flat (🍂 Subdued, quiet, emotional heaviness)
+3. Step 2 (Intensity Slider): Drag the slider from 1 (Subtle whisper) to 10 
+   (Very pronounced) to record how strongly you feel this state.
+4. Step 3 (Context Tags): Select any tags that apply to your day (Work, Family, 
+   Sleep, Outdoors, Quiet Time, etc.). You can also type your own custom tag 
+   and click the "+" button.
+5. Step 4 (Personal Notes): Optionally type anything you want to remember about 
+   what is happening in your body or mind.
+6. Click "Save Check-In". A confirmation alert will appear, and your entry will 
+   be saved to your private local storage.
+
+Optional Facial Expression Observation (AI Vision):
+1. Click the "Optional: Photo expression guess" button at the top right of the 
+   Mood form.
+2. Review the uncertainty notice: Facial expressions do not represent true inner 
+   emotions and computers can only guess visible facial muscles.
+3. Check the consent box: "I understand this is an uncertain expression guess..."
+4. Upload or capture a photo (JPG/PNG).
+5. Click "Analyze Visible Expression". Gemini AI examines only surface features 
+   (such as a slight smile or furrowed brow) and provides a tentative suggestion.
+6. Review the result:
+   - Click "Accept as Starting Mood" to apply it to your form.
+   - Click "Keep My Own Choice" to discard the AI guess.
+   - Note: The image is processed in memory and discarded immediately. It is 
+     NEVER saved to any server disk or database.
+
+--------------------------------------------------------------------------------
+FEATURE 4: SLEEP & WELLBEING LOG
+--------------------------------------------------------------------------------
+Purpose:
+Allows you to record your nightly rest, morning energy, and physical tension to 
+discover personal rest cycles over time.
+
+Step-by-Step Instructions:
+1. Navigate to the "Sleep & Rest" tab.
+2. In the "Log Last Night's Rest" form:
+   - Bedtime: Select the time you turned off lights (e.g., 23:00).
+   - Wake Time: Select the time you got out of bed (e.g., 07:00).
+   - Estimated Rest: MindCare calculates your sleep hours automatically (e.g., 8.0 hrs).
+3. Select Quality of Rest:
+   - Deep & Restorative (✨ Woke refreshed, uninterrupted)
+   - Restful            (🌿 Solid sleep, woke naturally)
+   - Fair / Okay        (🌤️ Average rest, minor awakenings)
+   - Restless           (🌀 Tossed and turned, racing thoughts)
+   - Interrupted        (⚡ Woke multiple times throughout the night)
+4. Set Morning Energy: Slide from 1 (Drained) to 5 (Vibrant).
+5. Set Stress / Tension: Slide from 1 (Calm) to 5 (Elevated).
+6. Optional Notes: Record anything relevant (e.g. "Read for 15 mins; avoided screens").
+7. Click "Save Sleep Log".
+8. Managing Logs: Your recent entries appear in the right-hand column. You can delete 
+   any entry by clicking the trash icon.
+
+--------------------------------------------------------------------------------
+FEATURE 5: HISTORY, CHARTS & REFLECTIVE INSIGHTS
+--------------------------------------------------------------------------------
+Purpose:
+Provides a holistic, cautious visualization of your check-in history without 
+drawing false cause-and-effect conclusions.
+
+Components:
+1. Cautious Pattern Summary Card:
+   - Highlights observed co-occurrences in your self-reported logs.
+   - Example: "You logged fatigued or stressed moods on some days following less 
+     than 6.5 hours of sleep. (Note: These reflect co-occurring self-reports, not 
+     direct cause-and-effect)."
+   - Reminds users that human wellbeing is influenced by many complex factors.
+2. Trend Charts Tab (7-Day Overview):
+   - Daily Mood Intensity Chart: Responsive visual bars showing your average daily 
+     intensity rating (scale 1 to 10). Hover over any day to see the exact value.
+   - Sleep Duration Chart: Visual bars showing your logged hours of sleep compared 
+     to an 8-hour benchmark.
+3. Chronological Timeline Tab:
+   - Displays all confirmed mood entries in reverse chronological order with emoji, 
+     exact timestamps, intensity badges, tags, and notes.
+   - Includes a trash can icon on each card to delete specific entries.
+4. Export & Clear Data:
+   - Click "Export (JSON)" to download your entire reflection history as a file.
+   - Click "Clear Logs" to permanently erase records with a safety confirmation.
+
+--------------------------------------------------------------------------------
+FEATURE 6: EXERCISE LIBRARY & GUIDED INTERACTIVE PRACTICE
+--------------------------------------------------------------------------------
+Purpose:
+A collection of evidence-informed, low-risk practices to center your breathing, 
+ground your senses, or gently stretch your body whenever you need a pause.
+
+Categories Available:
+- Breathing: Paced rhythmic breathing to regulate the nervous system.
+- Grounding: Sensory reconnection techniques for racing thoughts or anxiety.
+- Gentle Movement: Low-effort neck, shoulder, and walking exercises.
+- Journaling: Structured writing prompts for unburdening mental clutter.
+- Sleep Wind-Down: Calming practices designed for evening bedtime routines.
+
+Interactive Guides & Tools:
+1. Box Breathing (4-4-4-4):
+   - Features an animated, pulsating breathing circle.
+   - Guides you through: Inhale for 4s -> Hold for 4s -> Exhale for 4s -> Rest for 4s.
+   - Includes real-time countdown timer and step instructions.
+2. 4-7-8 Calming Breath:
+   - Smooth animated pacer: Inhale 4s -> Hold 7s -> Slow whoosh exhale 8s.
+3. 5-4-3-2-1 Sensory Grounding:
+   - Step-by-step interactive countdown:
+     * 5 things you can see
+     * 4 things you can physically feel
+     * 3 things you can hear
+     * 2 things you can smell
+     * 1 thing you can taste
+4. Gentle Neck & Shoulder Release:
+   - Seated mobility sequence with countdown timers for shoulder rolls and side tilts.
+5. Evening Thought Unburdening:
+   - Prompts you to brain dump lingering thoughts into a private scratchpad, 
+     park unresolved items for tomorrow, and close with a compassionate note.
+6. Completion & Helpfulness Feedback:
+   - When finished, a gentle confetti celebration acknowledges your pause.
+   - You are asked: "Did this exercise feel helpful today?" (Yes / Not quite). 
+     Your answer dynamically informs future personalized suggestions on your Dashboard.
+   - You can pause or exit any exercise at any time without penalty.
+
+--------------------------------------------------------------------------------
+FEATURE 7: PRAKASH AI REFLECTION COMPANION
+--------------------------------------------------------------------------------
+Purpose:
+Prakash is your dedicated AI companion for gentle, nonjudgmental reflection. 
+Prakash listens first, validates your feelings, asks one question at a time, 
+and offers practical wellness exercises.
+
+How to Interact with Prakash:
+1. Navigate to the "Prakash AI" tab.
+2. Sharing Check-In Context (Transparent Toggle):
+   - In the top header of the chat, locate the "Logs context" button.
+   - Active (Eye icon): Prakash can see your most recent mood descriptor (e.g. 
+     Anxious, 7/10) and last sleep duration to provide more relevant thoughts. 
+     Whenever Prakash references this, a clear badge appears below the message.
+   - Hidden (Eye Off icon): Prakash converses without accessing any of your logs. 
+     You can toggle this off at any time.
+3. Conversational Style:
+   - Prakash speaks with warmth, calm empathy, and brevity (no long lectures).
+   - Prakash asks only ONE question at a time so you never feel overwhelmed.
+   - Quick Starters: If you are unsure what to say, click any of the starter 
+     chips below the chat (e.g. "I'm having trouble unwinding", "My thoughts feel 
+     scattered").
+4. Interactive Exercise Suggestions:
+   - If Prakash suggests an activity (like Box Breathing or Sensory Grounding), 
+     an interactive button appears directly inside the chat message. Clicking 
+     it opens the guided exercise player immediately.
+5. Freedom to Decline:
+   - You can say "no", "not now", or "I just want to vent". Prakash will never 
+     pressure, guilt, or scold you.
+6. Offline / Fallback Resilience:
+   - If the Gemini API experiences network delays or rate limits, Prakash 
+     automatically provides local reflection replies so you are never left waiting.
+
+--------------------------------------------------------------------------------
+FEATURE 8: CRISIS PROTOCOL & VERIFIED EMERGENCY SUPPORT
+--------------------------------------------------------------------------------
+Purpose:
+Ensures immediate access to human help when users experience acute emotional 
+distress, danger, or thoughts of self-harm.
+
+How Safety is Enforced:
+1. Crisis Keyword Interception: If a message mentions self-harm, ending life, or 
+   severe distress, Prakash immediately pauses conversational banter, responds with 
+   warm compassion, and displays verified crisis resources.
+2. The Crisis Support Modal:
+   - Accessible anytime from the top navigation bar by clicking "Crisis Support".
+   - Verified 24/7 Contacts:
+     * United States & Canada: 988 Suicide & Crisis Lifeline (Call or Text 988)
+     * India: Tele-MANAS National Helpline (Call 14416 or 1800-891-4416)
+     * United Kingdom: NHS Mental Health Services (Call 111, or 999 for emergencies)
+     * International: Direct links to Find A Helpline (https://findahelpline.com) 
+       and Befrienders Worldwide (https://www.befrienders.org).
+3. Clear Reminder: MindCare is software, not human care. Support from these hotlines 
+   is free, confidential, and staffed 24/7 by trained human counselors.
+
+--------------------------------------------------------------------------------
+FEATURE 9: SETTINGS, PRIVACY CONTROLS & DATA MANAGEMENT
+--------------------------------------------------------------------------------
+Purpose:
+Gives you complete control over permissions, data ownership, and technical status.
+
+Settings Available:
+1. AI Consent Toggles:
+   - "Allow AI Reflection Conversations (Prakash)"
+   - "Include Recent Mood & Sleep Context in Prakash Chat"
+   - "Enable Optional Photo Facial Expression Guessing"
+2. Backend & API Status:
+   - Displays whether Google Gemini is connected and active.
+   - Shows the active model name (e.g., gemini-3.1-flash-lite).
+   - Explains that keys are loaded server-side without exposing secrets.
+3. Data Export & Permanent Erasure:
+   - "Download All Data (JSON)": Exports your preferences, mood logs, sleep records, 
+     and exercise feedback into a formatted JSON file for your own records.
+   - "Permanently Delete All Data": Erases every entry and preference from your 
+     browser's local storage. This action is irreversible.
+
+
+================================================================================
+4. COMMON USER SCENARIOS & STEP-BY-STEP WALKTHROUGHS
+================================================================================
+
+SCENARIO A: You had a demanding, high-stress workday
+--------------------------------------------------------------------------------
+1. Open MindCare at http://localhost:3001.
+2. Click "Log My Mood".
+3. Select "Stressed" or "Overwhelmed" and set intensity to 7 or 8.
+4. Tap tags like "Work" and "Screen time". Add a short note if you wish. Click "Save".
+5. Return to the Home Dashboard: Notice that your "Suggested For You" card has 
+   automatically updated to recommend "Box Breathing (4-4-4-4)", noting: 
+   "Suggested because you logged feeling stressed today."
+6. Click "Begin" on the card. Follow the smooth animated circle for 3 minutes to 
+   soften physical tension in your chest and shoulders.
+7. Click "Yes, helpful" at the end to reinforce this practice.
+
+SCENARIO B: You woke up groggy after tossing and turning
+--------------------------------------------------------------------------------
+1. Open MindCare and click the "Sleep & Rest" tab.
+2. Enter your bedtime (e.g. 00:30) and wake time (e.g. 06:15).
+3. Select "Restless" for Sleep Quality.
+4. Set Energy to 2 and Stress to 4. Click "Save Sleep Log".
+5. Go to the Home Dashboard: Your recommendation updates to suggest a gentle, 
+   low-effort practice like "Gentle Neck & Shoulder Release" or "4-7-8 Breath" 
+   with transparent rationale: "Suggested because your last logged sleep was 5.8 hrs (restless)."
+6. Spend 4 minutes doing the seated stretches to wake up stiff muscles without 
+   demanding high energy.
+
+SCENARIO C: Racing thoughts and bedtime restlessness
+--------------------------------------------------------------------------------
+1. Navigate to the "Prakash AI" tab in the evening.
+2. Ensure "Logs context" is active so Prakash knows about your day.
+3. Type: "My mind is spinning with things I have to do tomorrow and I can't wind down."
+4. Prakash listens with empathy and suggests trying the "Evening Thought Unburdening" 
+   exercise, presenting a direct button in the chat.
+5. Click the button to launch the exercise. Write out your mental to-do list into the 
+   parking lot, commit to leaving it until tomorrow morning, and close your laptop.
+
+SCENARIO D: You feel peaceful and want to savor it
+--------------------------------------------------------------------------------
+1. Click "Log My Mood" and select "Peaceful" or "Content".
+2. Select tags like "Quiet Time" and "Outdoors".
+3. MindCare recognizes this centered state and suggests the "Three Micro-Joys Reflection" 
+   to gently anchor the sensory details of your ease.
+
+
+================================================================================
+5. FREQUENTLY ASKED QUESTIONS (FAQ) & TECHNICAL DETAILS
+================================================================================
+
+Q1: Does anyone else see my mood notes, sleep logs, or chat messages?
+A: No. All reflection records are saved on your local device in your browser's 
+   LocalStorage. When chatting with Prakash or analyzing photos, requests are 
+   transmitted via secure encrypted server proxy to Google Gemini without 
+   retaining copies on disk.
+
+Q2: Can I use MindCare without an internet connection or without AI?
+A: Yes. All manual mood check-ins, sleep logging, timeline tracking, SVG charts, 
+   data export, and the entire interactive exercise library work 100% locally 
+   without internet or AI API keys. If the Gemini API key is missing or offline, 
+   Prakash gracefully switches to compassionate local reflection responses.
+
+Q3: Can a photo diagnose my depression, anxiety, or true mood?
+A: Absolutely not. Facial expressions are complex social and physical movements 
+   that often differ from internal emotional reality. MindCare treats all photo 
+   estimations as tentative, surface-level guesses and gives you complete authority 
+   to override or discard them.
+
+Q4: Where is the Gemini API key configured?
+A: It is configured in the root .env file on the server (GEMINI_API_KEY). It is 
+   never exposed to frontend code or client browser inspection.
+
+Q5: How do I export or backup my data?
+A: Go to either the "Insights" tab or the "Settings" tab and click "Export (JSON)" 
+   or "Download All Data (JSON)". Your browser will download a clean JSON file 
+   containing your check-in history, sleep entries, and preferences.
+
+Q6: How do I clear all my data?
+A: Go to "Settings" and click "Permanently Delete All Data". Confirm the prompt, 
+   and all stored records will be completely erased from your device.
+
+================================================================================
+MindCare 🌿 — Take a gentle pause. There is nothing to fix right now.
+================================================================================
+

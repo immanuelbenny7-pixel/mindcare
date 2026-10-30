@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FAF8F5] text-calm-800 font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Calm custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Breathing animation cycle (4s in, 4s hold, 4s out, 4s rest) */
+@keyframes breathingCircle {
+  0% {
+    transform: scale(0.65);
+    opacity: 0.7;
+    background-color: #83a185;
+  }
+  25% {
+    transform: scale(1.15);
+    opacity: 1;
+    background-color: #648566;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.95;
+    background-color: #4e6950;
+  }
+  75% {
+    transform: scale(0.65);
+    opacity: 0.7;
+    background-color: #83a185;
+  }
+  100% {
+    transform: scale(0.65);
+    opacity: 0.7;
+    background-color: #83a185;
+  }
+}
+
+.animate-breathing-circle {
+  animation: breathingCircle 16s ease-in-out infinite;
+}
+
+/* 4-7-8 Breathing animation cycle (4s in, 7s hold, 8s out) */
+@keyframes breathing478 {
+  0% {
+    transform: scale(0.6);
+    background-color: #7950c9;
+  }
+  21% {
+    transform: scale(1.2);
+    background-color: #8c6ad7;
+  }
+  58% {
+    transform: scale(1.2);
+    background-color: #8c6ad7;
+  }
+  100% {
+    transform: scale(0.6);
+    background-color: #7950c9;
+  }
+}
+
+.animate-breathing-478 {
+  animation: breathing478 19s ease-in-out infinite;
+}
+
